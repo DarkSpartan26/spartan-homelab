@@ -33,6 +33,17 @@ The following services are isolated in Docker containers and routed through the 
 
 ## 📂 Repository Structure
 
-* `/docker` - Contains all `docker-compose.yml` stacks and Caddy configurations. (Environment variables handled via local `.env` files).
+* `/docker` - Contains all `docker-compose.yml` stacks (Environment variables handled via local `.env` files).
 * `/scripts` - Automation and maintenance bash scripts.
-* `/systemd` - Custom `.service` files for host-level daemon management.
+* `/networking` - files for networking, caddy file
+
+### 📊 Service Overview
+
+| Service | Deployment | Access Method | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Nextcloud** | Docker | Caddy / SSL | Personal Cloud & Files |
+| **Jellyfin** | Docker | Caddy / SSL | Media Streaming |
+| **Syncthing** | Native (Systemd) | Tailscale | Obsidian Knowledge Base Sync |
+| **Minecraft** | Docker | Port 25565 | Private Gaming Server |
+| **Tailscale** | Native | Mesh VPN | Remote Admin & India Exit-Node |
+| **Caddy** | Native | Ports 80, 443 | Reverse Proxy & Auto-HTTPS |
