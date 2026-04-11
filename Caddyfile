@@ -1,0 +1,14 @@
+# Spartan Homelab - Caddyfile
+{
+    email {$ACME_EMAIL} # ACME email for automated Let's Encrypt certificates
+}
+
+# Nextcloud Proxy
+nextcloud.{$MY_DOMAIN} {
+    reverse_proxy localhost:8090
+}
+
+# Jellyfin Proxy
+jellyfin.{$MY_DOMAIN} {
+    reverse_proxy localhost:8096
+}
