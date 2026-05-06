@@ -1,5 +1,6 @@
 # 🛡️ Spartan Homelab (Transcontinental Deployment)
 
+![Validate Docker Compose](https://github.com/DarkSpartan26/spartan-homelab/actions/workflows/validate.yml/badge.svg)
 This repository contains the Infrastructure as Code (IaC), systemd service configurations, and declarative deployment stacks for my personal headless Debian server. 
 
 **Deployment Architecture:** The bare-metal server is physically hosted in Delhi, India, and is entirely remotely administered, monitored, and maintained from Kaiserslautern, Germany. 
