@@ -1,0 +1,32 @@
+name: Validate Docker Compose
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Validate Jellyfin
+        env:
+          SERVER_IP_OR_DOMAIN: ${{ secrets.SERVER_IP_OR_DOMAIN }}
+        run: docker compose -f docker/jellyfin/docker-compose.yml config
+
+      - name: Validate Nextcloud
+        env:
+          NC_DB_ROOT_PASSWORD: ${{ secrets.NC_DB_ROOT_PASSWORD }}
+          NC_DB_PASSWORD: ${{ secrets.NC_DB_PASSWORD }}
+        run: docker compose -f docker/nextcloud/docker-compose.yml config
+
+      - name: Validate Minecraft
+        run: docker compose -f docker/minecraft/docker-compose.yml config
+
+      - name: Validate qBittorrent
+        run: docker compose -f docker/qBittorrent/docker-compose.yml config
